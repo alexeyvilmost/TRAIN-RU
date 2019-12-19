@@ -1,0 +1,408 @@
+* {
+	margin: 0;
+	font-family: Arial, Helvetica, sans-serif;
+  	text-decoration: none;
+}
+
+.container {
+  width: 1150px;
+  margin: 0 auto;
+}
+
+.field {
+	width: 1150px;
+	height: 360px;
+	margin-top: 300px;
+	margin-right: 130px;
+	background: white;
+	z-index: -1000;
+	position: absolute;
+	border-radius: 15px;
+}
+
+#main_block {
+	position: relative;
+	margin-top: 300px;
+}
+
+.path {
+	position: relative;
+	margin-top: 10px;
+	width: 100%;
+	height: 70px;
+}
+
+.path a {
+	color: white;
+	opacity: 100%;
+	font-family: 'Acme', sans-serif;
+}
+
+#pblock4, #pblock2, #pblock3 {
+	width: 0%;
+	height: 70px;
+	z-index: -1;
+	position: absolute;
+	background: linear-gradient(#1c3471, #0c2461);
+}
+
+#pblock1 {
+	width: 25%;
+	height: 70px;
+	z-index: -1;
+	position: absolute;
+	background: linear-gradient(#1c3471, #0c2461);
+}
+
+.path_item {
+	width: 25%;
+	height: 70px;
+	box-sizing: border-box;
+	float: left;
+	border: 1px solid black;
+}
+
+#pdir {
+	color: white;
+}
+
+#ptrain, #ppas, #ppay {
+	opacity: 60%;
+}
+
+.path_text {
+	margin-top: 15px;
+	text-align: center;
+	font-family: 'Acme', sans-serif;
+	font-size: 30px;
+}
+
+#TableDB {
+	width: 100%;
+	height: 100%;
+}
+
+.navigation_menu {
+	overflow: hidden;
+	padding: 5px 20px;
+	height: 35px;
+	color: black;
+}
+
+#template_nav {
+	border-bottom: 1px solid black;
+}
+
+#mi_img {
+	width: 575px;
+	height: auto;
+}
+
+#mi_p {
+	margin-top: 30px;
+	width: 50%;
+	float: left;
+}
+
+
+.title {
+	margin: 10px auto;
+	text-align: center;
+	color: #0c2461;
+}
+
+#big_logo {
+	margin: 0 auto;
+}
+
+.logo {
+  float: left;
+}
+
+.admin_mode {
+	position: relative;
+	top: -15px;
+	right: 30px;
+	float: right;
+}
+
+.about_us {
+  	float: right;
+}
+
+.forma {
+	width: 1150px;
+	height: 570px;
+	top: 20%;
+	z-index: 1000;
+	background: white;
+	position: absolute;
+	border-radius: 15px;
+}
+
+.find {
+	width: 95%;
+	height: 110px;
+	margin: 20px auto;
+	border-radius: 10px;
+	background: linear-gradient(#1c3471, #0c2461);
+}
+
+.find select {
+	width: 490px;
+}
+
+.find input[type="date"] {
+	width: 300px;
+}
+
+#template_find {
+	padding-top: 10px;
+	width: 100%;
+	height: 140px;
+}
+
+#template_select {
+	width: 500px;
+}
+
+fst {
+    font-size: 25px;
+}
+
+sec {
+    font-size: 27px;
+  	font-family: 'Acme', sans-serif;
+ }
+
+ .form_title {
+	font-size: 60px;
+}
+
+.timed::placeholder {
+	font-size: 35px;
+	text-align: center;
+}
+
+label {
+	position: absolute;
+	margin-top: 7px;
+	margin-left: 20px;
+	font-size: 20px;
+	color: rgba(255, 255, 255, 0.8);
+}
+
+.direct_sel, .date_pick {
+	margin-left: 20px;
+}
+
+.find input,
+.find select {
+	font-size: 35px;
+	height: 45px;
+	margin: 32px 20px;
+	float: left;
+}
+
+input, select, select option {
+	font-family: 'Acme', sans-serif;
+}
+
+input[type="submit"]{
+  font-size: 32px;
+  background-color: white;
+  color: #1c3471;
+  border: 1px solid #0c2461;
+  font-family: 'Acme', sans-serif;
+  transition: 0.3s;
+}
+
+#buy_mode input[type="button"]{
+opacity: '0%';
+  font-size: 32px;
+  background-color: white;
+  color: #1c3471;
+  border: 1px solid #0c2461;
+  font-family: 'Acme', sans-serif;
+  transition: 0.3s;
+}
+
+input[type="button"]
+{
+  font-size: 32px;
+  background-color: #1c3471;
+  color: white;
+  border: 1px solid #0c2461;
+  font-family: 'Acme', sans-serif;
+  transition: 0.3s;
+}
+
+input[type="submit"]:hover {
+	background: #ced6e0;
+}
+
+input[type="button"]:hover {
+	background: #ced6e0;
+}
+
+#form_subm {
+	float: right;
+}
+
+.features {
+	width: 100%;
+	height: 320px;
+	margin-top: 30px;
+}
+
+.feature {
+	height: 100%;
+	width: 25%;
+	float: left;
+	text-align: center;
+}
+
+img {
+	margin-top: 20px;
+}
+
+h2 {
+	text-align: center;
+	font-style: 'Acme', sans-serif;
+}
+
+.disc {
+	font-size: 18px; 
+	color: black;
+	margin: 0 15px;
+}
+
+.filters {
+	width: 25%;
+	height: 500px;
+	background: linear-gradient(#1c3471, #0c2461);
+	border-radius: 10px;
+	text-align: center;
+	padding-top: 20px;
+	position: sticky;
+	color: white;
+	overflow: hidden;
+	float: left;
+	top: 30px;
+}
+
+.timed, .filters input[type="number"] {
+	margin-top: 0px;
+	width: 80px;
+  	font-size: 25px;
+	height: 30px;
+}
+
+.trains {
+	width: 75%;
+	float: right;
+}
+
+.block {
+	margin: 20px 200px 20px 0;
+	padding-left: 30px;
+	width: 96%;
+	height: 50px;
+}
+
+.out_info {
+	width: 500px;
+	height: 35px;
+	float: left;
+	border-bottom: 3px dashed #0c2461;
+}
+
+.out_travel, .buybutton {
+	float: right;
+}
+
+.buybutton {
+	width: 150px;
+}
+
+.out_tfrom, .out_info, .out_direction, .out_tto {
+	float: left;
+}
+
+.out_tfrom {
+margin-top: 5px;
+  width: 80px;
+}
+
+.out_tto {
+	margin-top: 5px;
+	margin-left: 10px;
+}
+
+#buy_form {
+	display: none;
+	border-radius: 10px;
+	background: linear-gradient(#1c3471, #0c2461);
+	z-index: 900;
+	width: 600px;
+	left: 50%;
+	position: relative;
+	transform: translate(-50%, 0);
+	color: white;
+	padding-top: 20px;
+	height: 500px;
+	transition: 0.3s;
+}
+
+#buy_form a {
+	color: #aaaaaa;
+}
+
+#confirm_butt {
+	position: relative;
+	left: 20%;
+	transform: translate(-50%; 0);
+}
+
+#close a {
+	font-family: 'Acme', sans-serif;
+	font-size: 25px;
+	color: white;
+}
+
+#close {
+	float: right;
+	margin-right: 20px;
+}
+
+.form_main, #buy_form select, #buy_form option {
+	height: 30px;
+	font-size: 28px;
+	width: 500px;
+	margin: 8px 0;
+}
+
+#buy_form select {
+	height: 40px;
+}
+
+#buy_form input[type="checkbox"]
+{
+	margin-right: 7px;
+}
+
+.input_pair, .checks {
+	margin-top: 5px;
+}
+
+.checks {
+	margin-bottom: 20px;
+}
+
+#buy_form input[type=number]
+{
+	height: 30px;
+	width: 100px;
+	font-size: 25px;
+	margin-left: 20px;
+}

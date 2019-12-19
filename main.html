@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link href="style/main.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Acme&display=swap" rel="stylesheet">
+	<script src="backend/code.js"></script>
+	<title>TRAIN.RU</title>
+</head>
+<body id="main_body" onload="javascript:direction_fill_main();">
+	<header>
+		<div class="container">
+			<div class="navigation_menu">
+				<div class="logo">
+					<fst>TRAIN</fst>
+					<sec>RU</sec>
+				</div>
+<!-- 				<div class="about_us">
+					<fst>ABOUT</fst>
+					<sec>US</sec>
+				</div> -->
+			</div>
+		</div>
+	</header>
+	<section>
+		<div class="container">
+			<div class="forma">
+				<div class="title">
+					<fst class="form_title">TRAIN</fst><sec class="form_title">RU</sec><br>
+					<fst style="color: black; font-size: 14px">best service to find and buy train tickets</fst>
+				</div>
+				<div class="find">
+					<form action="javascript:newTab()">
+						<div class="direct_sel">
+							<label>Direction:</label>
+							<select id="main_select">
+								<option>ALL</option>
+							</select>
+						</div>
+						<div class="date_pick">
+							<label>Depart date:</label>
+							<input type="date" id="main_date" required>
+						</div>
+						<input type="submit" id="form_subm" value = "Find trains">
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>

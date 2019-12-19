@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link href="../style/main.css" rel="stylesheet">
+	<script src="../backend/code.js"></script>
+	<script src="../backend/database.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Acme&display=swap" rel="stylesheet">
+	<title>Search results</title>
+</head>
+<body onload="javascript:direction_fill_temp(); javascript:date_pick_today();" id="temp_body" background="../img/main_bg2.jpg">
+
+	<header>
+		<div class="container">
+			<div class="navigation_menu" id="template_nav">
+				<div class="logo" onclick="window.location.href = 'template.html';">
+					<fst>TRAIN</fst>
+					<sec>RU</sec>
+				</div>
+				<div class="about_us" onclick="window.location.href = 'about_us.html';">
+					<fst>ABOUT</fst>
+					<sec>US</sec>
+				</div>
+				<div class="admin_mode">
+					<img src="https://img.icons8.com/material-sharp/24/000000/admin-settings-male.png" onclick="admin_mode();">
+				</div>
+			</div>
+		</div>
+	</header>
+
+	
+	<div class="container">
+		<div class="field" id="field_m"></div>
+	</div>
+	<section id="main_block">
+			<div class="container">
+				<div class="title" id="big_logo">
+					<fst class="form_title">TRAIN</fst><sec class="form_title">RU</sec><br>
+					<fst style="color: black; font-size: 14px">best service to find and buy train tickets</fst>
+				</div>
+				<div class="path">
+					<div class="path_item" id="pdir"><div class="blue_block" id="pblock1"></div><div class="path_text" id="pdirt">Choose direction</div></div>
+					<div class="path_item" id="ptrain"><div class="blue_block" id="pblock2"></div><div class="path_text" id="ptraint">Choose train</div></div>
+					<div class="path_item" id="ppas"><div class="blue_block" id="pblock3"></div><div class="path_text">Enter passenger info</div></div>
+					<div class="path_item" id="ppay"><div class="blue_block" id="pblock4"></div><div class="path_text">Payment</div></div>
+				</div>
+				
+				<div class="find" id="template_find">
+					<div style="text-align: center; color: white;">
+						<sec>Your order information:</sec>
+					</div>
+					<form action="javascript:makeRequest();">
+						<div class="direct_sel">
+							<label>Direction:</label>
+							<select id="template_select">
+								<option>ALL</option>
+							</select>
+						</div>
+						<div class="date_pick">
+							<label>Depart date:</label>
+							<input type="date" id="date_pick">
+						</div>
+						<input type="submit" id="form_subm" value = "Find trains" onclick="move_up();">
+					</form>
+				</div>
+
+			<div class="output_info">
+				<div class="filters" id="filter_bar" style = "display: none;">
+					<div id="filter_content">
+						<div id="train_mode" >
+							<sec style="border-bottom: 1px solid white;">Additional filters</sec><br><br>
+							<sec class="filter_label">Departure time:</sec><br>
+								<input type="text" id="min_time_from" class="timed tfrom" maxlength="5" placeholder="--:--"><sec style="font-size: 30px;"> - </sec>
+								<input type="text" id="max_time_from"class="timed tto" maxlength="5" placeholder="--:--"><br><br>
+							<sec class="filter_label">Arrival time:</sec><br>
+								<input type="text" id="min_time_to" class="timed tfrom" maxlength="5" placeholder="--:--"><sec style="font-size: 30px;"> - </sec>
+								<input type="text" id="max_time_to" class="timed tto" maxlength="5" placeholder="--:--"><br><br>
+							<sec class="filter_label">Travel time:</sec><br>
+								<input type="text" id="min_time_travel" class="timed tfrom" maxlength="5" placeholder="--:--"><sec style="font-size: 30px;"> - </sec>
+								<input type="text" id="max_time_travel" class="timed tto" maxlength="5" placeholder="--:--"><br><br>
+							<sec class="filter_label">Departured trains:</sec><br>
+								<input type="number" min="0" max="20" value="3" id="max_shown"></br>
+								<input type="submit" style="margin-top: 20px" value="Show trains" onclick="makeRequest();">
+						</div><br><br>
+						<div id="buy_mode">
+							<sec style="border-bottom: 1px solid white;">Train informarion</sec><br><br>
+							<sec class="filter_label">Train number</sec>
+							<div style="text-align: center;" id="TRAIN_id"></div><br>
+							<div id="TRAIN_direction"><sec>Direction: </sec><br></div><br>
+							<div id="TRAIN_date"><sec>Departure date: </sec><br></div><br>
+							<div id="TRAIN_time"><sec>Departure time: </sec><br></div><br>
+							<input type="button" style="margin-top: 20px" value="Go back" onclick="closeBuyForm(); to_train();">
+						</div>
+					</div>
+				</div>
+				
+				<div class="trains" id="train_block" style="display: none">
+					<div id="TableDB">
+					<div style="text-align: center;"><sec style="font-size: 40px;">Search results:</sec></div>
+					<!-- <div class="block">
+						<div class="out_tfrom">
+							<fst>12 </fst><sec>34</sec>
+						</div>
+						<div class="out_info">
+							<div class="out_direction">
+								<fst>Moscow - St. Petersburg</fst>
+							</div>
+							<div class="out_travel">
+								<sec>5h 12m</sec>
+							</div>
+							<div class="out_line">
+							</div>
+						</div>
+						<div class="out_tto">
+							<fst>12 </fst><sec>34</sec>
+						</div>
+						<input type = "button" value = "Buy ticket" class="buybutton">
+					</div> -->
+					</div>
+
+					<div id="buy_form" style="text-align: center;" id="buy_tt">
+						<div id="close"><a href="javascript:closeBuyForm(); to_train();">X</a></div>
+						<div style="text-align: center;"><sec>Passenger information</sec></div>
+						<div id="train_info">
+
+							<!-- form -->
+							<form action="javascript:check_pay();" style="text-align: center;">
+								<input placeholder="Name" class="form_main" id="db_name" required>
+								<input type="email" class="form_main" placeholder="Email" id="db_email" required>
+								<input type="tel" class="form_main" placeholder="Phone number" id="db_phone" required>
+								<input placeholder="ID number" class="form_main" id="db_id_num" required>
+								<select id="db_ticket">
+									<option value="Standart" selected>Standart</option>
+									<option value="Premium">Premium</option>
+								</select>
+								<div class="input_pair">
+									<sec>Number of passengers:</sec><input type="number" min=0 max=10 id="db_pass_num" value="1" required>
+								</div>
+								<div class="checks">
+									<input type="checkbox" required><fst style="font-size: 15px;">Agreement with <a href="#">TRAIN-RU transition policy</a></fst><br>
+									<input type="checkbox" required><fst style="font-size: 15px;">Agreement with <a href="#">Personal data usage</a></fst>
+								</div>
+								<input type="submit" value="Choose payment method">
+							</form>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<script src="../backend/anime.min.js"></script>
+	<script>
+		clicks_move_up = 0;
+
+		anime({
+			targets: '.field',
+			scale: 1.05
+		})
+
+		var whole = anime({
+			targets: '.field',
+			scale: 5,
+			autoplay: false,
+			duration: 3000
+		})
+
+		function move_up() {
+			if (clicks_move_up++ == 0)
+			{
+				move_main_block.restart();
+				block_right1.play();
+				whole.restart();
+				// document.getElementById('temp_body').background = "../img/black.jpg";
+				// document.getElementById('field_m').style = "display: none";
+			}
+		}
+
+		function to_buy() {
+			train_info_up.restart();
+			block_right2.restart();
+		}
+
+		function to_train() {
+			train_info_down.restart();
+			block_left2.restart();
+		}
+
+		var move_main_block = anime({
+		  targets: '#main_block',
+		  translateY: -280,
+		  autoplay: false,
+		  duration: 1500
+		});
+
+		// var try_left = anime({
+		// 	targets: '.output_info',
+		// 	translateX: -2000,
+		// 	autoplay: false
+		// })
+
+		var block_right2 = anime({
+			targets: '#pblock1',
+			width: ['50%', '75%'],
+			easing: 'easeInOutQuad',
+			duration: 700,
+			autoplay: false
+		})
+
+		var block_left2 = anime({
+			targets: '#pblock1',
+			width: ['75%', '50%'],
+			easing: 'easeInOutQuad',
+			duration: 700,
+			autoplay: false
+		})
+
+		var block_right1 = anime({
+			delay: 300,
+			targets: "#pblock1",
+			width: ['25%', '50%'], // -> from '28px' to '100%',
+  			easing: 'easeInOutQuad',
+  			duration: 700,
+			autoplay: false,
+
+			complete: function(anim) {
+				temp_body.background = "../img/black.jpg";
+				field_m.style = "display: none";
+			}
+		});
+
+		var train_info_down = anime({
+			targets: "#filter_content",
+			translateY: [-500, -0],
+			autoplay: false
+		})
+
+		var train_info_up = anime({
+			targets: "#filter_content",
+			translateY: [0, -500],
+			autoplay: false
+		})
+
+
+
+		// var show_trains = anime({
+		//   targets: '.block',
+		//   autoplay: false,
+		//   translateX: 270,
+		//   delay: anime.stagger(100) // increase delay by 100ms for each elements.
+		// });
+	</script>
+</body>
+</html>
